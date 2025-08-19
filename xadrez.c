@@ -4,7 +4,7 @@ void bispo(int casas){//inicio recursiva bispo
     if (casas > 0){//inicio if
         for (int vertical = 1; vertical <= 1; vertical++){//inicio for-while externo
             for (int horizontal = 1; horizontal <= 1; horizontal++){//inicio for-while interno
-                printf("direita\n");
+                printf("direita, ");
             }//fim for-while interno
             printf("cima\n");
         }//fim for-while externo 
@@ -42,7 +42,7 @@ int main() {
     for (int cavalocima=3, cavalodireita=2; cavalocima>0 || cavalodireita>0; cavalocima--,cavalodireita--)
     {//inicio do for
        if (cavalocima>1){//icinio do if verdadeiro
-        printf("cima\n");
+        printf("cima, ");
        } else{//inicio do else
         printf("direita\n");
     }//fim do else
