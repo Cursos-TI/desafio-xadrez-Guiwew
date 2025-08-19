@@ -1,44 +1,52 @@
 #include <stdio.h>
 
-int main() {
-    int bispo =1,torre=1, rainha=1, cavalo;//adicionar as peças
+void bispo(int casas){//inicio recursiva bispo
+    if (casas > 0){//inicio if
+        for (int vertical = 1; vertical <= 1; vertical++){//inicio for-while externo
+            for (int horizontal = 1; horizontal <= 1; horizontal++){//inicio for-while interno
+                printf("direita\n");
+            }//fim for-while interno
+            printf("cima\n");
+        }//fim for-while externo 
+    bispo(casas - 1);
+    }// fim if
+}// fim recursiva bispo
 
-        printf("***movimento do bispo***\n");
-    while (bispo<=5){//inicio do while e movimento do bispo a 5 casas diagonal direita
-        printf("cima direita\n");
-        bispo++;  }//fim do while
+void torre(int casas){//inicio recursiva torre
+   if (casas>0){//inicio if
+    printf("direita\n");
+    torre(casas - 1);
+   }//fim if
+}//fim recursiva torre
 
-        printf("***movimento da torre***\n");
-    do{//inicio do do-while e movimento da torre 5 casas a direita
+void rainha(int casas){//inicio recursiva rainha
+    if (casas>0){//inicio if
         printf("direita\n");
-        torre++;
-    } while (torre<=5);//fim do do-while
+        rainha(casas - 1);
+    }//fim if
+}// fim recursiva rainha
 
-    printf("***movimento da rainha***\n");
-    for (rainha = 1; rainha<=8; rainha++){//inicio do for-while e movimento da rainha 8 casas a esquerda
-        printf("esquerda\n");  }//fim do for-while
+int main() {
+    int movimentobispo =5,movimentotorre=5, movimentorainha=8;//adicionar as peças e declarando os movimentos
+
+    printf("***movimento do bispo***\n");//inicio do movimento do bispo 5 casas vertical 
+    bispo(movimentobispo);
+
+    printf("***movimento da torre***\n");//inicio do movimento da torre 5 casas a direita
+    torre(movimentotorre);
+
+    printf("***movimento da rainha***\n");//inicio do movimento da rainha 8 casas a esquerda
+    rainha(movimentorainha);
     
-    printf("***movimento do cavalo***\n");
-    for (cavalo=1; cavalo<=1; cavalo++){//inicio do for-while e movimento do cavalo 2 casas baixo e 1 esquerda
-        int cavalodiagonal=1;
-
-        while (cavalodiagonal<=2){//começo do while interno
-            printf("baixo, ");
-            cavalodiagonal++;
-        }//fim do while interno
-
-        printf("esquerda\n");
-        
-    }//fim do for-while
-    
-
-
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
-
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+   printf("***movimento do cavalo***\n");//inicio do movimento do cavalo 2 casas cima e 1 direita
+    for (int cavalocima=3, cavalodireita=2; cavalocima>0 || cavalodireita>0; cavalocima--,cavalodireita--)
+    {//inicio do for
+       if (cavalocima>1){//icinio do if verdadeiro
+        printf("cima\n");
+       } else{//inicio do else
+        printf("direita\n");
+    }//fim do else
+    }//fim do for
 
     return 0;
 }
